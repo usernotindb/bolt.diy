@@ -1,0 +1,29 @@
+{
+  "name": "bolt-diy",
+  "version": "1.0.0",
+  "description": "DIY project powered by Stackblitz Bolt",
+  "deploymentType": "container",
+  "buildSettings": {
+    "dockerFile": "Dockerfile",
+    "port": 3000,
+    "buildMethod": "dockerfile",
+    "useNixpacks": false
+  },
+  "environmentVariables": [
+    {
+      "name": "NODE_ENV",
+      "value": "production"
+    }
+  ],
+  "commands": {
+    "build": "pnpm run build",
+    "start": "pnpm run start"
+  },
+  "scaling": {
+    "minInstances": 1,
+    "maxInstances": 5,
+    "cpuThreshold": 80,
+    "memoryThreshold": 80
+  },
+  "path": "/var/www/bolt-diy"
+}
